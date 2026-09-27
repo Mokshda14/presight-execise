@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* Dark styles apply when the resolved theme (set pre-paint in index.html) is dark. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  color-scheme: light dark;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100dvh;
+  background-image: url('/background/light-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+:root[data-theme="dark"] body {
+  background-image: url('/background/dark.jpg');
+}
+
+/* No-JS / pre-resolution fallback follows the system preference. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) body {
+    background-image: url('/background/dark.jpg');
+  }
+}
