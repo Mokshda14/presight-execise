@@ -11,7 +11,6 @@ node_modules/
 # production
 dist/
 build/
-scripts/
 
 # misc
 .DS_Store
@@ -29,3 +28,10 @@ yarn-error.log*
 
 .parcel-cache
 .idea/
+
+server/data/
+*.db
+*.tsbuildinfo
+deploy/
+package-lock.json
+.claude/
